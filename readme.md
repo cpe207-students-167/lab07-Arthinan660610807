@@ -7,7 +7,7 @@
 
 ชื่อ-สกุล : Arthinan Changsawang
 
-GitHub Page URL :
+GitHub Page URL : https://cpe207-students-167.github.io/lab07-Arthinan660610807/
 
 ---
 
