@@ -17,13 +17,14 @@ function validateEmail(email) {
 }
 
 // add callback function for firstNameInput.onkeyup event
+// (lastname ,email ,password ,confirm password)
 firstNameInput.onkeyup = () => {
   firstNameInput.classList.remove("is-valid");
   firstNameInput.classList.remove("is-invalid");
 };
 
 // add callback functions for other input events.
-// (lastname, email, password, confirm password)
+
 lastNameInput.onkeyup = () => {
   lastNameInput.classList.remove("is-valid");
   lastNameInput.classList.remove("is-invalid");
@@ -34,15 +35,6 @@ emailInput.onclick = () => {
   emailInput.classList.remove("is-invalid");
 };
 
-passwordInput.onclick = () => {
-  passwordInput.classList.remove("is-valid");
-  passwordInput.classList.remove("is-invalid");
-};
-
-confirmPasswordInput.onclick = () => {
-  confirmPasswordInput.classList.remove("is-valid");
-  confirmPasswordInput.classList.remove("is-invalid");
-};
 
 // add callback function for submit button.
 submitBtn.onclick = () => {
@@ -75,23 +67,23 @@ submitBtn.onclick = () => {
     isEmailOk = true;
   }
 
-  // validate password
-  if (passwordInput.value === "") {
-    passwordInput.classList.add("is-invalid");
-  } else if(passwordInput.value.length >= 6){
+  // validate password & confirm password
+  if(passwordInput.value.length >= 6) {
     passwordInput.classList.add("is-valid");
     isPasswordOk = true;
+  } else {
+    passwordInput.classList.add("is-invalid");
   }
-
-  // validate confirm password
-  if (confirmPasswordInput.value === "") {
-    confirmPasswordInput.classList.add("is-invalid");
-  } else if (confirmPasswordInput.value.length >= 6 && confirmPasswordInput.value !== passwordInput.value) {
-    confirmPasswordInput.classList.add("is-invalid");
-  } else if (confirmPasswordInput.value === passwordInput.value) {
+  
+  if (
+    confirmPasswordInput.value.length >= 6 && confirmPasswordInput.value === passwordInput.value
+  ) {
     confirmPasswordInput.classList.add("is-valid");
     isConfirmPasswordOk = true;
+  } else {
+    confirmPasswordInput.classList.add("is-invalid");
   }
+
   if (
     isFirstNameOk
     && isLastNameOk
