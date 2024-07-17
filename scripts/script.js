@@ -86,13 +86,12 @@ submitBtn.onclick = () => {
   // validate confirm password
   if (confirmPasswordInput.value === "") {
     confirmPasswordInput.classList.add("is-invalid");
-  } else if (confirmPasswordInput.value !== passwordInput.value) {
+  } else if (confirmPasswordInput.value.length >= 6 && confirmPasswordInput.value !== passwordInput.value) {
     confirmPasswordInput.classList.add("is-invalid");
   } else if (confirmPasswordInput.value === passwordInput.value) {
     confirmPasswordInput.classList.add("is-valid");
     isConfirmPasswordOk = true;
   }
-
   if (
     isFirstNameOk
     && isLastNameOk
